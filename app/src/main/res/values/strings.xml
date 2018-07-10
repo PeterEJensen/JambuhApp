@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">Jambuh</string>
+
+    <string name="forget_password">Glemt dit kodeord?</string>
+    <string name="hintEmail">E-mail</string>
+    <string name="hintPass">Password</string>
+    <string name="btLogin">Log In</string>
+    <string name="btSignUp">Sign Up</string>
+    <string name="one">Chat</string>
+
+</resources>
