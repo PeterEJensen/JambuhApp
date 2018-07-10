@@ -85,15 +85,37 @@
             android:padding="10dp"
             android:textColorHint="#FFF" />
 
+        <ImageView
+            android:id="@+id/profileImage"
+            android:layout_width="100sp"
+            android:layout_height="100sp"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="170dp"
+            android:src="@mipmap/ic_launcher" />
+
         <Button
             android:id="@+id/register"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_alignParentBottom="true"
             android:layout_alignParentStart="true"
-            android:layout_marginBottom="118dp"
+            android:layout_marginBottom="90dp"
             android:background="@drawable/background_login_button"
             android:text="Registrer"
             android:textColor="@color/colorPrimary" />
+
+
+        <TextView
+            android:id="@+id/already_member"
+            style="@style/Base.TextAppearance.AppCompat.Body2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:padding="16dp"
+            android:text="@string/already_member"
+            android:textColor="#FFF"
+            android:textSize="16sp" />
     </RelativeLayout>
 </LinearLayout>

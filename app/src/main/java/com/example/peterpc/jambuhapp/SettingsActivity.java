@@ -140,7 +140,7 @@ public class SettingsActivity extends AppCompatActivity {
         userInfo.put("phone", phone);
         mUserDatabase.updateChildren(userInfo);
         if(resultUri != null){
-            StorageReference filepath = FirebaseStorage.getInstance().getReference().child("profileImages").child(userId);
+            final StorageReference filepath = FirebaseStorage.getInstance().getReference().child("profileImages").child(userId);
             Bitmap bitmap = null;
 
             try {
@@ -159,22 +159,32 @@ public class SettingsActivity extends AppCompatActivity {
                     finish();
                 }
             });
+
             uploadTask.addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
                 @Override
                 public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
-                    Uri downloadUrl = taskSnapshot.getDownloadUrl();
+                    filepath.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
+                        @Override
+                        public void onSuccess(Uri uri) {
+                            Map newImage = new HashMap();
+                            newImage.put("profileImageUrl", uri.toString());
+                            mUserDatabase.updateChildren(newImage);
 
-                    Map userInfo = new HashMap();
-                    userInfo.put("profileImageUrl", downloadUrl.toString());
-                    mUserDatabase.updateChildren(userInfo);
-
-                    finish();
-                    return;
+                            finish();
+                            return;
+                        }
+                    }).addOnFailureListener(new OnFailureListener() {
+                        @Override
+                        public void onFailure(@NonNull Exception exception) {
+                            finish();
+                            return;
+                        }
+                    });
                 }
             });
-        }else{
-            finish();
+
         }
+
     }
 
     @Override

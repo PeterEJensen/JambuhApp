@@ -7,8 +7,10 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -26,6 +28,8 @@ public class RegistrationActivity extends AppCompatActivity {
 
     private Button mRegister;
     private EditText mEmail, mPassword, mName;
+    private ImageView mProfileImage;
+    private TextView mMember;
 
     private RadioGroup mRadioGroup;
 
@@ -52,13 +56,35 @@ public class RegistrationActivity extends AppCompatActivity {
         };
 
 
+
+
         mRegister = (Button) findViewById(R.id.register);
 
-        mEmail = (EditText) findViewById(R.id.email);
-        mPassword = (EditText) findViewById(R.id.password);
-        mName = (EditText) findViewById(R.id.navn);
+        mEmail = findViewById(R.id.email);
+        mPassword = findViewById(R.id.password);
+        mName = findViewById(R.id.navn);
+        mProfileImage = findViewById(R.id.profileImage);
+        mMember = findViewById(R.id.already_member);
 
         mRadioGroup = (RadioGroup) findViewById(R.id.radioGroup);
+
+
+        mProfileImage.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(Intent.ACTION_PICK);
+                intent.setType("image/*");
+                startActivityForResult(intent, 1);
+            }
+        });
+        mMember.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(RegistrationActivity.this, LoginActivity.class);
+                startActivity(intent);
+                finish();
+            }
+        });
 
         mRegister.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -93,6 +119,7 @@ public class RegistrationActivity extends AppCompatActivity {
             }
         });
     }
+
 
     @Override
     protected void onStart() {

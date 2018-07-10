@@ -7,5 +7,6 @@
     <string name="btLogin">Log In</string>
     <string name="btSignUp">Sign Up</string>
     <string name="one">Chat</string>
+    <string name="already_member">Allerede medlem? Log på her</string>
 
 </resources>
