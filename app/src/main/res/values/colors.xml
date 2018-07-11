@@ -5,4 +5,11 @@
     <color name="colorAccent">#ffcb2b</color>
     <color name="softPink">#ffd1dc</color>
     <color name="colorPrimaryLight">#a8a3b0</color>
+
+    <color name="white">#FFFFFF</color>
+    <color name="transparent">#00000000</color>
+    <color name="gradStart">#fd297b</color>
+    <color name="gradStop">#ffd1dc</color>
 </resources>
+
+   <!-- #19AA8B  23A7D8 -  ->

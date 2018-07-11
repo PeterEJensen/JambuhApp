@@ -28,10 +28,11 @@ public class RegistrationActivity extends AppCompatActivity {
 
     private Button mRegister;
     private EditText mEmail, mPassword, mName;
-    private ImageView mProfileImage;
+   // private ImageView mProfileImage;
     private TextView mMember;
 
     private RadioGroup mRadioGroup;
+
 
     private FirebaseAuth mAuth;
     private FirebaseAuth.AuthStateListener firebaseAuthStateListener;
@@ -63,20 +64,20 @@ public class RegistrationActivity extends AppCompatActivity {
         mEmail = findViewById(R.id.email);
         mPassword = findViewById(R.id.password);
         mName = findViewById(R.id.navn);
-        mProfileImage = findViewById(R.id.profileImage);
+       // mProfileImage = findViewById(R.id.profileImage);
         mMember = findViewById(R.id.already_member);
 
         mRadioGroup = (RadioGroup) findViewById(R.id.radioGroup);
 
 
-        mProfileImage.setOnClickListener(new View.OnClickListener() {
+       /* mProfileImage.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(Intent.ACTION_PICK);
                 intent.setType("image/*");
                 startActivityForResult(intent, 1);
             }
-        });
+        });*/
         mMember.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -89,6 +90,8 @@ public class RegistrationActivity extends AppCompatActivity {
         mRegister.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+
+
                 int selectId = mRadioGroup.getCheckedRadioButtonId();
 
                 final RadioButton radioButton = (RadioButton) findViewById(selectId);

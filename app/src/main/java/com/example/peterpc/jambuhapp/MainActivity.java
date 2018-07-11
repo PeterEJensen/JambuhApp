@@ -227,6 +227,10 @@ public class MainActivity extends AppCompatActivity {
         @Override
         public void onClick(final View view) {
 
+            Intent intent = new Intent(MainActivity.this, MatchesActivity.class);
+            startActivity(intent);
+            finish();
+            return;
         }
     }
 }

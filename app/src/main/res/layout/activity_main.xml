@@ -70,8 +70,8 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:background="?attr/selectableItemBackground"
-                android:src="@drawable/broken_heart1" />
+                android:background="?android:attr/selectableItemBackground"
+                app:srcCompat="@drawable/broken_heart1" />
 
             <ImageView
                 android:id="@+id/heart_icon"
@@ -79,7 +79,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:background="?android:attr/selectableItemBackground"
-                android:src="@drawable/heart1" />
+                app:srcCompat="@drawable/heart1" />
 
 
         </LinearLayout>
